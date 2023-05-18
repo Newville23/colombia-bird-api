@@ -88,10 +88,6 @@ export class BirdsService {
     },
   ];
 
-  create(bird: Bird) {
-    this.birds.push(bird);
-  }
-
   getOne(id: string) {
     return this.birds.filter((bird: Bird) => bird.id === Number(id))[0];
   }
