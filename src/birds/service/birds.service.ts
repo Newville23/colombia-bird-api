@@ -7,7 +7,6 @@ export class BirdsService {
     {
       id: 1,
       name: 'Colibrí andino',
-      enName: 'Andean Hummingbird',
       sciName: 'Oreotrochilus estella',
       familySciName: 'Trochilidae',
       familyCode: 1,
@@ -48,7 +47,6 @@ export class BirdsService {
     {
       id: 2,
       name: 'Guacharaca colombiana',
-      enName: 'Colombian Chachalaca',
       sciName: 'Ortalis columbiana',
       familySciName: 'Cracidae',
       familyCode: 2,
