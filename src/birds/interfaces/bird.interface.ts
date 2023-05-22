@@ -30,7 +30,6 @@ interface GeographicalArea {
 export interface Bird {
   id: number;
   name: string;
-  enName: string;
   sciName: string;
   familySciName: string;
   familyCode: number;

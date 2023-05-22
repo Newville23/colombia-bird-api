@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+
+
+model Bird {
+  id  Int @default(autoincrement()) @id
+  name String @unique
+  colName String
+  sciName String
+  family Family @relation(fields: [familyId], references: [id]) 
+  familyId Int
+  gender Gender @relation(fields: [genderId], references: [id])
+  genderId Int
+  populationTrend PopulationTrend @relation(fields: [populationTrendCode], references: [code])
+  populationTrendCode Int
+  conservationStatus ConservationStatus @relation(fields: [conservationStatusCode], references: [code])
+  conservationStatusCode String
+  anatomy Anatomy? @relation(fields: [anatomyId], references: [id])
+  anatomyId Int?
+  size Int
+  geographicalArea GeographicalArea @relation(fields: [geographicalAreaId], references: [id])
+  geographicalAreaId Int
+} 
+
+model Family {
+  id Int @default(autoincrement()) @id
+  name String @unique
+  description String?
+  species Int
+  birds Bird[]
+  genders Gender[]
+}
+
+model Gender {
+  id Int @default(autoincrement()) @id
+  name String @unique
+  species Int
+  description String?
+  birds Bird[]
+  family Family @relation(fields: [familyId], references: [id])
+  familyId Int
+}
+
+model PopulationTrend { 
+  code Int @id
+  label String @unique
+  color String
+  description String  
+  birds Bird[]
+}
+
+model ConservationStatus {
+  code String @id
+  label String @unique
+  description String
+  birds Bird[]
+}
+
+model GeographicalArea {
+  id Int @default(autoincrement()) @id
+  department String?
+  region String?
+  habitat String
+  polygon Json?
+  birds Bird[]
+}
+
+model Anatomy {
+  id Int @default(autoincrement()) @id
+  head    String
+  neck    String
+  body    String
+  wings   String
+  tail    String
+  legs    String
+  birds Bird[]
+}
