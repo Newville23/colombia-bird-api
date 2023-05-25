@@ -3,10 +3,12 @@ import { AppController } from './app.controller';
 import { BirdsController } from './birds/birds.controller';
 import { AppService } from './app.service';
 import { BirdsService } from './birds/service/birds.service';
+import { FamilyModule } from './family/family.module';
+import { PrismaService } from './prisma/prisma.service';
 
 @Module({
-  imports: [],
+  imports: [FamilyModule],
   controllers: [AppController, BirdsController],
-  providers: [AppService, BirdsService],
+  providers: [AppService, BirdsService, PrismaService],
 })
 export class AppModule {}
