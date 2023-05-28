@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { BirdsService } from './service/birds.service';
-import { Bird } from './interfaces/bird.interface';
+import { Bird } from '@prisma/client';
 
 @Controller('birds')
 export class BirdsController {
