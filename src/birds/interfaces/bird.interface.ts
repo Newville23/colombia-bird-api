@@ -27,13 +27,25 @@ interface GeographicalArea {
   polygon: [number, number][];
 }
 
+interface Gender {
+  name: string;
+  description: string;
+  species: number;
+}
+
+interface Family {
+  name: string;
+  description?: string;
+  species: number;
+}
+
 export interface Bird {
   id: number;
   name: string;
   sciName: string;
-  familySciName: string;
-  familyCode: number;
-  genderSciName: string;
+  colName: string;
+  family: Family;
+  gender: Gender;
   populationTrend: PopulationTrend;
   conservationStatus: ConservationStatus;
   anatomy: Anatomy;
