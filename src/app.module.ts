@@ -7,6 +7,7 @@ import { ConservationStatusModule } from './conservation-status/conservation-sta
 import { BirdsModule } from './birds/birds.module';
 import { PopulationTrendModule } from './population-trend/population-trend.module';
 import { GenderModule } from './gender/gender.module';
+import { AnatomyModule } from './anatomy/anatomy.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { GenderModule } from './gender/gender.module';
     BirdsModule,
     PopulationTrendModule,
     GenderModule,
+    AnatomyModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],
